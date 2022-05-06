@@ -2,7 +2,7 @@ package model.abilities;
 
 import java.util.ArrayList;
 import model.world.Damageable;
-
+import model.world.* ;
 public class DamagingAbility extends Ability {
 	
 	private int damageAmount;
@@ -18,7 +18,15 @@ public class DamagingAbility extends Ability {
 	}
 	
 	public void execute(ArrayList<Damageable> targets) {
-		
+		for(Damageable da : targets){
+			da.setCurrentHP(da.getCurrentHP()-this.getDamageAmount());
+			if(da instanceof Champion){
+				Champion c = (Champion) da ;
+				c.setMana(c.getMana() - this.getManaCost()) ;
+				c.setCurrentActionPoints(c.getCurrentActionPoints() - this.getRequiredActionPoints());
+			}
+			
+		}
 	}
 
 }

@@ -1,6 +1,8 @@
 package model.abilities;
 
 import java.util.ArrayList;
+
+import model.world.Champion;
 import model.world.Damageable;
 
 public  class HealingAbility extends Ability {
@@ -20,7 +22,15 @@ public  class HealingAbility extends Ability {
 	}
 
 	public void execute(ArrayList<Damageable> targets) {
-		
+		for(Damageable da : targets){
+			da.setCurrentHP(da.getCurrentHP()+this.getHealAmount());
+			if(da instanceof Champion){
+				Champion c = (Champion) da ;
+				c.setMana(c.getMana() - this.getManaCost()) ;
+				c.setCurrentActionPoints(c.getCurrentActionPoints() - this.getRequiredActionPoints());
+			}
+			
+		}
 	}
 
 	
