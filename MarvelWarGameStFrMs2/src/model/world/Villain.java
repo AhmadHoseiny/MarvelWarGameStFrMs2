@@ -1,6 +1,6 @@
 package model.world;
 
-
+import java.util.ArrayList;
 
 public class Villain extends Champion {
 
@@ -9,5 +9,11 @@ public class Villain extends Champion {
 
 	}
 
-	
+	public void useLeaderAbility(ArrayList<Champion> targets) {
+		for(Champion c : targets) {
+			if(c.getCurrentHP() < 0.3*c.getMaxHP()) {
+				c.setCondition(Condition.KNOCKEDOUT);
+			}
+		}
+	}
 }
