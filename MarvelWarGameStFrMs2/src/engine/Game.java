@@ -1,6 +1,4 @@
 package engine;
-//basha masr....
-//yarab te4ta8al...
 import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.FileReader;
