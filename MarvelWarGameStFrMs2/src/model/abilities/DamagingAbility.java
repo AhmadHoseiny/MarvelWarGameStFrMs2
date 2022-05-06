@@ -1,6 +1,7 @@
 package model.abilities;
 
-
+import java.util.ArrayList;
+import model.world.Damageable;
 
 public class DamagingAbility extends Ability {
 	
@@ -16,5 +17,8 @@ public class DamagingAbility extends Ability {
 		this.damageAmount = damageAmount;
 	}
 	
+	public void execute(ArrayList<Damageable> targets) {
+		
+	}
 
 }
